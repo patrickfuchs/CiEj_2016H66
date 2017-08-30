@@ -1,0 +1,19 @@
+; topology for a bilayer C12E2/water
+
+#include "ffG2016h66.itp"
+#include "C12E2.itp"
+
+#ifdef FLEX_SPC
+#include "flexspc.itp"
+#else
+#include "spc.itp"
+#endif
+
+[ system ]
+; name
+C12E2 in water
+
+[ molecules ]
+; name	number
+C12E2   90
+SOL     600
