@@ -1,0 +1,38 @@
+constraints            = all-bonds
+integrator             = md
+dt                     = 0.002
+tinit                  = 0
+nsteps                 = 100000000 ; total 200 ns
+nstcomm                = 1
+nstxout                = 100000
+nstvout                = 100000
+nstfout                = 0
+nstxtcout              = 5000
+xtc_precision          = 1000
+nstlog                 = 500
+nstenergy              = 500
+; non bonded stuff
+nstlist                = 5
+rlist                  = 0.8
+coulombtype            = generalized-reaction-field
+rcoulomb               = 1.4
+rvdw                   = 1.4
+epsilon_rf             = 61.0
+; Berendsen temperature coupling is on in two groups
+Tcoupl                 = v-rescale
+tau_t                  = 0.1    0.1
+tc-grps                = C12E4  SOL
+ref_t                  = 300.0  300.0
+; Energy monitoring
+energygrps             = C12E4  SOL
+; pressure coupling is on
+Pcoupl                 = Parrinello-Rahman
+pcoupltype             = semiisotropic
+tau_p                  = 4.0    4.0
+compressibility        = 4.5e-5 4.5e-5
+ref_p                  = 1.0    1.0
+;generate velocites is on at 300K
+gen_vel                = yes
+gen_temp               = 300.0
+gen_seed               = 1756856
+
