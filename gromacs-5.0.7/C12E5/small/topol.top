@@ -1,0 +1,19 @@
+; topology for a mixture C12E4/water
+
+#include "2016h66.ff/forcefield.itp"
+#include "C12E5.itp"
+
+#ifdef FLEX_SPC
+#include "flexspc.itp"
+#else
+#include "2016h66.ff/spc.itp"
+#endif
+
+[ system ]
+; name
+C12E5 in water
+
+[ molecules ]
+; name	number
+C12E5   90
+SOL    675
