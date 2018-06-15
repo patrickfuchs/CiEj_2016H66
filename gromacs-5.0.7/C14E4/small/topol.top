@@ -1,0 +1,19 @@
+; topology for a mixture C12E4/water
+
+#include "2016h66.ff/forcefield.itp"
+#include "C14E4.itp"
+
+#ifdef FLEX_SPC
+#include "flexspc.itp"
+#else
+#include "2016h66.ff/spc.itp"
+#endif
+
+[ system ]
+; name
+C14E4 in water
+
+[ molecules ]
+; name	number
+C14E4   90
+SOL    2700
