@@ -1,0 +1,49 @@
+constraints            = all-bonds
+integrator             = md
+dt                     = 0.002
+tinit                  = 0
+nsteps                 = 100000000 ; total 200 ns
+nstcomm                = 1
+nstxout                = 500000
+nstvout                = 500000
+nstfout                = 0
+nstxout-compressed     = 5000 ; every 10 ps
+compressed-x-precision = 1000
+nstlog                 = 500
+nstenergy              = 500
+; non bonded stuff
+nstlist                = 10
+nstype                 = grid
+pbc                    = xyz
+
+; Method for doing electrostatics = 
+cutoff-scheme          = Verlet
+coulombtype            = PME
+rcoulomb               = 1.4
+
+; Method for doing Van der Waals = 
+vdw-type               = Cut-off
+rlist                  = 0.8
+rvdw                   = 1.4
+
+; PME
+fourierspacing         = 0.12
+pme_order              = 4
+
+; Berendsen temperature coupling is on in two groups
+Tcoupl                 = v-rescale
+tau_t                  = 0.1    0.1
+tc-grps                = C12E4  SOL
+ref_t                  = 300.0  300.0
+; Energy monitoring
+energygrps             = C12E4  SOL
+; pressure coupling is on
+Pcoupl                 = Parrinello-Rahman
+pcoupltype             = semiisotropic
+tau_p                  = 4.0    4.0
+compressibility        = 4.5e-5 4.5e-5
+ref_p                  = 1.0    1.0
+;generate velocites is on at 300K
+gen_vel                = yes
+gen_temp               = 300.0
+gen_seed               = 7913823
