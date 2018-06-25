@@ -1,7 +1,7 @@
 # CiEj_2016H66
 This repositery contains files to simulate CiEj surfactants as described in this paper :
 
-Simulating Bilayers of Nonionic Surfactants with the GROMOS-Compatible 2016H66 Force Field
+Simulating Bilayers of Nonionic Surfactants with the GROMOS-Compatible 2016H66 Force Field.
 Senac *et al.* (2017), *Langmuir*, **33**, 10225–10238 ([DOI](http://doi.org/10.1021/acs.langmuir.7b01348))
 
 The CiEj parameters are based on the GROMOS-compatible 2016H66 force field ([DOI](http://doi.org/10.1021/acs.jctc.6b00187)).
