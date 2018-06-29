@@ -48,3 +48,7 @@ An additional file pores.R is provided. It is a R script to analyze the outputs 
 
 !!! WARNING !!! Delete old output if you rerun the program in the same repertory.
 
+
+--------------------------------------------------
+DISCLAIMER
+This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more details.
