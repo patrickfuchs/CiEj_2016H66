@@ -1,0 +1,50 @@
+search_pore_ciej.py is a program to find pore in a bilayer.
+Author: Caroline Senac (caroline.senac@upmc.fr)
+Version: V3 (05/2017)
+
+This program cuts the bilayer in a grid of 200*200 cells (can be modified by user)
+and searches for empty cells. The connected empty cells are grouped in pore.
+
+
+Prerequisites:
+- Python 2.7
+- Python libraries : scipy, numpy, mdtraj, pandas
+
+Usage:
+  python search_pore_ciej.py -f traj.xtc -c topol.gro -n index.ndx -p list_atoms.txt [-col 200] [-row 200]
+
+ optional arguments:
+  -h, --help            shows this help message and exit
+  -f TRAJECTORY, --trajectory TRAJECTORY
+                        <.xtc/.gro> trajectory file
+  -c TOPOLOGY, --topology TOPOLOGY
+                        <.gro> topology file
+  -n INDEX, --index INDEX
+                        <.ndx> index file
+  -p LIST_ATOMS, --list_atoms LIST_ATOMS
+                        <.txt> list of atoms
+  -col COLUMN, --column COLUMN
+                        <int> number of column in grid
+  -row ROW, --row ROW   <int> number of row in grid
+
+Necessary files:
+- A GROMACS trajectory file (traj.xtc). You need to do a "trjconv -pbc atom" on your trajectory to use this program.
+- A GROMACS topology file (topol.gro).
+- A GROMACS index file (index.ndx). This index must have only one group, which corresponds to the study bilayer (example: aliphatic tails for CiEj).
+- A file text of atoms of interest. This file need to be organise en 3 columns separated by spaces.
+                                    First column: residue name, second column: atom name, third column type name.
+                                    These names must be like in itp file (See the example file: itp_for_pore.txt).
+
+Output:
+- pdb files in a repertory named pdb. Each pdb corresponds to a frame and each point in the file is an empty cell.
+- pores_in_time.dat: a file with the first and last frame of each pore.
+                     Each line is a pore (pore name;first frame;last frame;number of frame;percentage of frame with this pore).
+- sizes.dat: matrix of pore size in nm^2 for each frame.
+             Lines: pore (first line is bilayer area in nm^2)
+             Columns: frame (first column is pore name)
+- pores_size.txt: for each frame the number of pores and their sizes.
+
+An additional file pores.R is provided. It is a R script to analyze the outputs of search_pore_ciej.py.
+
+!!! WARNING !!! Delete old output if you rerun the program in the same repertory.
+
