@@ -21,3 +21,9 @@ NB2: In the Langmuir paper, all simulations were simulated using GROMACS 4.0.7, 
 ## Sub-Directory `gromacs-5.0.7`
 For each surfactant, you'll find one sub-directory:
 - `small` which contains small bilayers of 90 surfactants simulated with PME. This has been tested by us and we get similar results as with version 4.0.7 using PME.
+
+## Sub-directory `search_pore_ciej`
+This sub-directory contains the python script (+ dependancies) to calculate pores within a CiEj bilayer. This code has been initially written by Caroline Senac ([initial repository](https://github.com/csenac/search_pore_ciej)).
+
+
+All these files are under licence Creative Commons Attribution - Partage dans les Mêmes Conditions 3.0 France (CC BY-SA 3.0 FR).
