@@ -14,7 +14,6 @@ import errno
 from scipy.ndimage import label, sum
 import numpy as np
 import mdtraj as md
-import pandas as pd
 
 usageprog = \
 """
