@@ -1,9 +1,9 @@
 This directory contains the Python 3 version of `search_pore_ciej.py` with added features.
 
 -------------------------
-search_pore_com_ciej.py is a program to find pores in a bilayer and compute their center of mass (COM).
-Author: Caroline Senac (caroline.senac@upmc.fr) and Maya Zygadlo (maya.zygadlo@sorbonne-universite.fr)
-Version: V4 (07/2024)
+search_pore_com_ciej.py is a program to find pores in a bilayer and compute their center of mass (COM).  
+Author: Caroline Senac (caroline.senac@upmc.fr) and Maya Zygadlo (maya.zygadlo@sorbonne-universite.fr)  
+Version: V4 (07/2024)  
 
 This program cuts the bilayer in a grid of 200*200 cells (can be modified by the user)
 and searches for empty cells. The connected empty cells are grouped in different pores. 
@@ -14,23 +14,20 @@ Prerequisites:
 - Python 3
 - Python libraries : scipy, numpy, mdtraj
 
-Usage:
-  python search_pore_ciej.py -f traj.xtc -c topol.gro -n index.ndx -p list_atoms.txt [-col 200] [-row 200]
+Usage:  
+```
+python search_pore_ciej.py -f traj.xtc -c topol.gro -n index.ndx -p list_atoms.txt [-col 200] [-row 200]
+```
 
 Mandatory arguments:  
-  -f TRAJECTORY, --trajectory TRAJECTORY  
-                        <.xtc/.gro> trajectory file  
-  -c TOPOLOGY, --topology TOPOLOGY  
-                        <.gro> topology file  
-  -n INDEX, --index INDEX  
-                        <.ndx> index file  
-  -p LIST_ATOMS, --list_atoms LIST_ATOMS  
-                        <.txt> list of atoms  
+  -f TRAJECTORY, --trajectory TRAJECTORY    <.xtc/.gro> trajectory file  
+  -c TOPOLOGY, --topology TOPOLOGY    <.gro> topology file  
+  -n INDEX, --index INDEX    <.ndx> index file  
+  -p LIST_ATOMS, --list_atoms LIST_ATOMS    <.txt> list of atoms  
 Optionnal arguments:  
   -h, --help            shows this help message and exit  
-  -col COLUMN, --column COLUMN  
-                        <int> number of column in grid  
-  -row ROW, --row ROW   <int> number of row in grid  
+  -col COLUMN, --column COLUMN    <int> number of column in grid  
+  -row ROW, --row ROW    <int> number of row in grid  
 
 Input files:
 - A GROMACS trajectory file (traj.xtc). You need to do a "gmx trjconv -pbc atom" on your trajectory to use this program.
