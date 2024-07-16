@@ -17,20 +17,20 @@ Prerequisites:
 Usage:
   python search_pore_ciej.py -f traj.xtc -c topol.gro -n index.ndx -p list_atoms.txt [-col 200] [-row 200]
 
-Mandatory arguments:
-  -f TRAJECTORY, --trajectory TRAJECTORY
-                        <.xtc/.gro> trajectory file
-  -c TOPOLOGY, --topology TOPOLOGY
-                        <.gro> topology file
-  -n INDEX, --index INDEX
-                        <.ndx> index file
-  -p LIST_ATOMS, --list_atoms LIST_ATOMS
-                        <.txt> list of atoms
-Optionnal arguments:
-  -h, --help            shows this help message and exit
-  -col COLUMN, --column COLUMN
-                        <int> number of column in grid
-  -row ROW, --row ROW   <int> number of row in grid
+Mandatory arguments:  
+  -f TRAJECTORY, --trajectory TRAJECTORY  
+                        <.xtc/.gro> trajectory file  
+  -c TOPOLOGY, --topology TOPOLOGY  
+                        <.gro> topology file  
+  -n INDEX, --index INDEX  
+                        <.ndx> index file  
+  -p LIST_ATOMS, --list_atoms LIST_ATOMS  
+                        <.txt> list of atoms  
+Optionnal arguments:  
+  -h, --help            shows this help message and exit  
+  -col COLUMN, --column COLUMN  
+                        <int> number of column in grid  
+  -row ROW, --row ROW   <int> number of row in grid  
 
 Input files:
 - A GROMACS trajectory file (traj.xtc). You need to do a "gmx trjconv -pbc atom" on your trajectory to use this program.
