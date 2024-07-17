@@ -713,7 +713,7 @@ def get_com(labels, label_list, csize, rsize, xmin, ymin):
     return com
 
 
-def write_com(com, zmax, frame):
+def write_com(com, zmax, frame, xmax, ymax):
     """
     Write the center of mass (COM) of each pore in a frame in a file
 
@@ -728,6 +728,9 @@ def write_com(com, zmax, frame):
     """
     # Open file to write inside
     with open("center_of_mass_pore.pdb", 'a') as f:
+        # Write first line in pdb to apply pbc in vmd
+        f.write(f"TITLE     Pore system t=   {(frame-1)*1000}.00000 step= {args.step*(frame-1)}\n")
+        f.write(f"CRYST1  {xmax*10:.3f}  {ymax*10:.3f}   {zmax*10:.3f}  90.00  90.00  90.00 P 1           1\n")
         f.write(f"MODEL {frame}\n")
         # Get the pore labels sorted
         keys = sorted(com.keys())
@@ -930,6 +933,8 @@ if __name__=="__main__":
         rsize_prev = rsize
         xmin_prev = xmin
         ymin_prev = ymin
+        xmax_prev = xmax
+        ymax_prev = ymax
     
     write_stat_pore(pore_in_time, len(coor))
     write_mat_size(pore_in_time, sizes, len(coor))
