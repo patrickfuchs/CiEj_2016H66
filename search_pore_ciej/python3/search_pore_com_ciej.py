@@ -636,28 +636,38 @@ def write_pdbs(nrow, ncol, csize, rsize, labels, xmin, ymin, zmax, nmdl):
         f.write("ENDMDL\n")
 
 
-def apply_pbc(dim, len_dim):
+def apply_pbc(row, col):
     """
     Apply the periodic boundary condition to a pore in a frame
 
     -----------------------------------
     INPUT
-    dim : list
-        Contains the rows or columns of a pore
-    len_dim : int
-        The number of row or column in the matrix
+    row : list
+        Contains the rows in the label matrix of a pore
+    col : int
+        Contains the columns in the label matrix of a pore
     
     -----------------------------------
     OUTPUT
     list
-        Containing the new location of the smallest portion of the pore
+        Containing the new rows in the label matrix of a pore
+    list
+	Containing the new columns in the label matrix of a pore
     """
-    if len(dim[dim < len_dim/2]) < len(dim[dim > len_dim/2]):
-        # need to apply pbc
-        dim_change = dim[dim < len_dim/2] + len_dim
-    else:
-        dim_change = dim[dim > len_dim/2] - len_dim
-    return dim_change
+    if max(row)-min(row) == args.row-1:
+        if len(row[row < args.row/2]) < len(row[row > args.row/2]):
+            # need to apply pbc
+            row[np.where(row < args.row/2)] = row[row < args.row/2] + args.row
+        else:
+            row[np.where(row > args.row/2)] = row[row > args.row/2] - args.row        
+    if max(col)-min(col) == args.column-1:
+        if len(col[col < args.column/2]) < len(col[col > args.column/2]):
+            # need to apply pbc
+            col[np.where(col < args.column/2)] = col[col < args.column/2] + args.column
+        else:
+            col[np.where(col > args.column/2)] = col[col > args.column/2] - args.column
+    
+    return row, col
 
 
 def get_com(labels, label_list, csize, rsize, xmin, ymin):
@@ -692,10 +702,8 @@ def get_com(labels, label_list, csize, rsize, xmin, ymin):
         row,col = np.where(labels == label)
         # If the pore is across the simulation box
         # Apply PBC to the smallest part of the pore
-        if max(row)-min(row) == args.row-1:
-            row[np.where(row < args.row/2)] = apply_pbc(row, args.row)
-        if max(col)-min(col) == args.column-1:
-            col[np.where(col < args.column/2)] = apply_pbc(col, args.column)
+        # And change the row and col lists
+        row, col = apply_pbc(row, col)
         # Compute the mean column and row of this pore == COM of the pore
         # And convert the indexes into real values
         ymean = xmin + np.mean(row) * rsize + rsize/2
