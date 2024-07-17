@@ -922,7 +922,7 @@ if __name__=="__main__":
             write_pdbs(args.row, args.column, csize_prev, rsize_prev, lab_prev, xmin_prev, ymin_prev, z, frame)
             # Write the COM of the pores in a .txt file
             com = get_com(lab_prev, list_of_pore, csize_prev, rsize_prev, xmin_prev, ymin_prev)
-            write_com(com, z, frame)
+            write_com(com, z, frame, xmax_prev, ymax_prev)
         else:
             write_empty_pdbs(frame)
 
