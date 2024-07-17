@@ -16,7 +16,7 @@ Prerequisites:
 
 Usage:  
 ```
-python search_pore_ciej.py -f traj.xtc -c topol.gro -n index.ndx -p list_atoms.txt [-col 200] [-row 200]
+python search_pore_com_ciej.py -f traj.xtc -c topol.gro -n index.ndx -p list_atoms.txt [-col 200] [-row 200] [-step 500000]
 ```
 
 Mandatory arguments:  
@@ -28,6 +28,8 @@ Optionnal arguments:
   -h, --help            shows this help message and exit  
   -col COLUMN, --column COLUMN    <int> number of column in grid  
   -row ROW, --row ROW    <int> number of row in grid  
+  -step STEP, --step STEP    <int> number of steps between each framein the .xtc file  
+
 
 Input files:
 - A GROMACS trajectory file (traj.xtc). You need to do a "gmx trjconv -pbc atom" on your trajectory to use this program.
