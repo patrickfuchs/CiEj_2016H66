@@ -34,6 +34,8 @@ def recup_args():
                         help="<int> number of column in grid. Default : 200")
     parser.add_argument("-row", "--row", type=float, default=200.,\
                         help="<int> number of row in grid. Default : 200")
+    parser.add_argument("-step", "--step", type=int, default=500000,\
+                        help="<int> number of steps between each framein the .xtc file. Default : 500000")
     args = parser.parse_args()
     return args
 
